@@ -1,11 +1,4 @@
- <?php
-/**
- * @author  tianxh.
- * email: tianxh@jpgk.com.cn
- * QQ:2018997757 * Date: 2017/5/18
- * Time: 16:04
- */
-
+<?php
 namespace src\Block;
 
 
