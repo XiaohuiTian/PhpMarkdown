@@ -91,5 +91,5 @@ $ol = new \src\Block\Li\OL([
 
 
 $page = new \src\Page($ol);
-$page->html();
+$page->html(\src\Style::NORMAL);
 //$page->code();

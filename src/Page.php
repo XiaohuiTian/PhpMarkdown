@@ -18,18 +18,29 @@ class Page
 	private $codes = "";
 	private $parsers = "";
 
+	private $style = "";
+	private $html = "";
+
 	public function __construct(ABlock $block)
 	{
 		$this->codes = $block::$codes;
 		$this->parsers = $block::$parsers;
 	}
 
-	public function html(){
+	public function html($style){
+
+		$this->style = Style::$styles[$style];
+
+		$this->header();
 
 		foreach($this->parsers as $parser){
 
-			echo $parser;
+			$this->html .= $parser;
 		}
+
+		$this->footer();
+
+		echo $this->html;
 	}
 
 	public function code(){
@@ -38,5 +49,28 @@ class Page
 
 			echo $code."<br/>";
 		}
+	}
+
+	private function header(){
+
+		$this->html .= <<<ABC
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link type="text/css" href="{$this->style}"/>
+</head>
+<body>
+ABC;
+	}
+
+	private function footer(){
+
+		$this->html .= <<<ABC
+</body>
+</html>
+ABC;
+
 	}
 }
