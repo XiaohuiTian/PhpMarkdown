@@ -2,20 +2,20 @@
 /**
  * @author  tianxh.
  * email: tianxh@jpgk.com.cn
- * QQ:2018997757 * Date: 2017/5/17
- * Time: 17:18
+ * QQ:2018997757 * Date: 2017/5/18
+ * Time: 17:14
  */
 
 namespace src\Block;
 
 
 /**
- * Class Italic
+ * Class Text
  *
  *
  * @package src\Block
  */
-class Italic extends ABlock implements IBlock
+class Text extends ABlock implements IBlock
 {
 	private $content = "";
 
@@ -28,14 +28,15 @@ class Italic extends ABlock implements IBlock
 
 	public function assemble()
 	{
-		$this->code = "*".$this->content."*";
+		$this->code = $this->content;
 	}
 
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<i>{$this->content}</i>{$this->next}
+<p>
+{$this->content}
+</p>
 ABC;
-
 	}
 }

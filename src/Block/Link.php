@@ -31,7 +31,7 @@ class Link extends ABlock implements IBlock
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<a href="{$this->link}">{$this->linkText}</a>
+<a href="{$this->link}">{$this->linkText}</a>{$this->next}
 ABC;
 	}
 

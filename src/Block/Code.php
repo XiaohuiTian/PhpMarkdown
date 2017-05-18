@@ -22,9 +22,10 @@ class Code extends ABlock implements IBlock
 	public function assemble()
 	{
 		$this->code = <<<ABC
-'
-{$this->code}
-'
+<pre>
+`{$this->content}
+`
+</pre>
 ABC;
 
 	}
@@ -32,9 +33,9 @@ ABC;
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<code>
+<pre>
 {$this->content}
-</code>
+</pre>
 ABC;
 	}
 }

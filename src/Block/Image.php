@@ -36,7 +36,7 @@ class Image extends ABlock implements IBlock
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<img alt="{$this->alt}" src="{$this->image}"/>
+<img alt="{$this->alt}" src="{$this->image}"/>{$this->next}
 ABC;
 	}
 }

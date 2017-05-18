@@ -20,7 +20,7 @@ class Bold extends ABlock implements IBlock
 	private $content = "";
 	public function __construct($content)
 	{
-		$this->content;
+		$this->content = $content;
 		parent::__construct();
 	}
 
@@ -32,7 +32,7 @@ class Bold extends ABlock implements IBlock
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<bold>{$this->content}</bold>
+<strong>{$this->content}</strong>{$this->next}
 ABC;
 	}
 }

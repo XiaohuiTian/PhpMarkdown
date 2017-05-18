@@ -14,7 +14,7 @@ use src\Block\IBlock;
  *
  *
  */
-class UL extends ABlock implements IBlock
+class OL extends ABlock implements IBlock
 {
 	private $list = [];
 
