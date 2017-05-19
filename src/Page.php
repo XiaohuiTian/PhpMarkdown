@@ -59,7 +59,7 @@ class Page
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	<link type="text/css" href="{$this->style}"/>
+	<link rel="stylesheet" type="text/css" href="{$this->style}"/>
 </head>
 <body>
 ABC;

@@ -23,8 +23,7 @@ class Code extends ABlock implements IBlock
 	{
 		$this->code = <<<ABC
 <pre>
-`{$this->content}
-`
+`{$this->content}`
 </pre>
 ABC;
 

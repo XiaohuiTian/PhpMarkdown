@@ -82,7 +82,7 @@ class Table extends ABlock implements IBlock
 		$keys = array_keys($this->talbe[0]);
 		foreach($keys as $key){
 
-			$html .= '<td>'.$key.'</td>';
+			$html .= '<th>'.$key.'</th>';
 		}
 
 		$html .= "</tr></thead>";

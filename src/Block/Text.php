@@ -28,7 +28,7 @@ class Text extends ABlock implements IBlock
 
 	public function assemble()
 	{
-		$this->code = $this->content;
+		$this->code = $this->content.$this->next;
 	}
 
 	public function parser()

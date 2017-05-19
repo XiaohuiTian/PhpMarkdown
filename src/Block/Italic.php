@@ -34,7 +34,7 @@ class Italic extends ABlock implements IBlock
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<i>{$this->content}</i>{$this->next}
+<em>{$this->content}</em>{$this->next}
 ABC;
 
 	}
