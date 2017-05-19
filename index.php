@@ -98,5 +98,5 @@ new \src\Block\H\H3("9. 链接样式");
 $link = new \src\Block\Link("欢迎访问bootstrap中文网","http://www.bootcss.com/");
 
 $page = new \src\Page($link);
-$page->html(\src\Style::NORMAL);
-//$page->code();
+$page->html(\src\Style::NORMAL);//显示html
+//$page->code();                  //显示markdown编码
