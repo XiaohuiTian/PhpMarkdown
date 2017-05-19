@@ -10,11 +10,13 @@ namespace src\Block;
  */
 class Code extends ABlock implements IBlock
 {
+	private $language = "";
 	private $content = "";
 
-	public function __construct($codes)
+	public function __construct($language,$codes)
 	{
 		$this->content = $codes;
+		$this->language = $language;
 
 		parent::__construct();
 	}
@@ -23,7 +25,9 @@ class Code extends ABlock implements IBlock
 	{
 		$this->code = <<<ABC
 <pre>
-`{$this->content}`
+```{$this->language}
+{$this->content}
+```
 </pre>
 ABC;
 

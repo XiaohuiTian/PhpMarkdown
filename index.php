@@ -79,7 +79,7 @@ public function __construct($talbe)
     $this->talbe = $talbe;
     parent::__construct();
 }';
-$code = new \src\Block\Code($codeText);
+$code = new \src\Block\Code("php",$codeText);
 
 new \src\Block\H\H3("5. 图片样式");
 $image = new \src\Block\Image("haha tupian","https://www.baidu.com/img/bd_logo1.png");
@@ -98,5 +98,5 @@ new \src\Block\H\H3("9. 链接样式");
 $link = new \src\Block\Link("欢迎访问bootstrap中文网","http://www.bootcss.com/");
 
 $page = new \src\Page($link);
-$page->html(\src\Style::NORMAL);//显示html
-//$page->code();                  //显示markdown编码
+//$page->html(\src\Style::NORMAL);//显示html
+$page->code();                  //显示markdown编码
