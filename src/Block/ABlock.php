@@ -31,6 +31,8 @@ abstract class ABlock
 	//解析源码聚合
 	public static $parsers = null;
 
+	public static $titles = null;
+
 	public function __construct()
 	{
 

@@ -33,6 +33,8 @@ class Page
 
 		$this->header();
 
+
+
 		foreach($this->parsers as $parser){
 
 			$this->html .= $parser;

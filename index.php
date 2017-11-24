@@ -40,7 +40,7 @@ new \src\Block\Table([
 		"字段名" => "性别",
 		"变量名" => "memsex",
 		"类型" => "string",
-		"说明" => "",
+		"说明" => "csdsdeddddddddddddddddddddddddddddddddddddddddddddddddddd",
 		"可空" => "Y",
 		"参数样例" => "女",
 	],
@@ -98,5 +98,5 @@ new \src\Block\H\H3("9. 链接样式");
 $link = new \src\Block\Link("欢迎访问bootstrap中文网","http://www.bootcss.com/");
 
 $page = new \src\Page($link);
-//$page->html(\src\Style::NORMAL);//显示html
-$page->code();                  //显示markdown编码
+$page->html(\src\Style::NORMAL);//显示html
+//$page->code();                  //显示markdown编码
