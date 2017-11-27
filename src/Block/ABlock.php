@@ -30,7 +30,7 @@ abstract class ABlock
 	public static $codes = null;
 	//解析源码聚合
 	public static $parsers = null;
-
+	//标题聚合
 	public static $titles = null;
 
 	public function __construct()
@@ -55,5 +55,10 @@ abstract class ABlock
 	protected function toparsers(){
 
 		self::$parsers[] = $this->parser;
+	}
+
+	protected function totitles($title){
+
+		self::$titles[] = $title;
 	}
 }

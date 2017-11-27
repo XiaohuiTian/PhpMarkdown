@@ -264,3 +264,15 @@ hr {
     background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
     background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 }
+
+
+/*定义左侧导航栏样式*/
+.leftNav{position:fixed;background:#fff;top:0px;bottom:0px;left:0px;padding:20px;max-height:100%;overflow:auto;width:310px;}
+.leftNav .h1{font-weight:bold;font-size:18px;line-height:50px;}
+.leftNav .h2{font-weight:bold;font-size:16px;line-height:30px;}
+.leftNav .h3{line-height:40px;}
+.leftNav a{text-decoration:none;}
+
+
+/*定义右侧内容样式*/
+.rightCon{padding-left:350px;}

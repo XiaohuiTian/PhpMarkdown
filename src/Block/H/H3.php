@@ -22,13 +22,14 @@ class H3 extends ABlock implements IBlock
 	{
 		$this->title = $title;
 		parent::__construct();
+		$this->totitles(["h3" => $title]);
 	}
 
 
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<h3>{$this->title}</h3>
+<h3 id="h3_{$this->title}">{$this->title}</h3>
 ABC;
 	}
 

@@ -21,13 +21,16 @@ class H1 extends ABlock implements IBlock
 	public function __construct($title)
 	{
 		$this->title = $title;
+
 		parent::__construct();
+
+		$this->totitles(["h1" => $title]);
 	}
 
 	public function parser()
 	{
 		$this->parser = <<<ABC
-<h1>{$this->title}</h1>
+<h1 id="h1_{$this->title}">{$this->title}</h1>
 ABC;
 
 	}
