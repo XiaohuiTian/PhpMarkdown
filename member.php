@@ -46,6 +46,7 @@ new \src\Block\Table([
 new \src\Block\H\H2("二. 接口列表");
 new \src\Block\H\H3("1. 会员注册接口");
 new \src\Block\Text("接口名：regist");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -107,6 +108,7 @@ new \src\Block\Code("php",$code1);
 
 new \src\Block\H\H3("2.会员登录接口");
 new \src\Block\Text("接口名：login");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -140,6 +142,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("3.获取会员中心数据接口");
 new \src\Block\Text("接口名：member");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -174,6 +177,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("4.积分记录接口");
 new \src\Block\Text("接口名：scoreList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -222,6 +226,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("5.用户中心优惠券列表接口");
 new \src\Block\Text("接口名：getCouponMarketingList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -258,6 +263,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("6.钱包消费记录接口");
 new \src\Block\Text("接口名：moneyList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -305,6 +311,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("7.订单列表接口");
 new \src\Block\Text("接口名：moneyList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -371,6 +378,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("8.获取充值数据接口");
 new \src\Block\Text("接口名：rechargeItemList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -407,6 +415,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("9.发起充值接口");
 new \src\Block\Text("接口名：startRecharge");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -470,6 +479,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("10.充值成功回调接口");
 new \src\Block\Text("接口名：rechargePayNotify");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -501,6 +511,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("11.获取可参与的领取优惠券活动接口");
 new \src\Block\Text("接口名：getCouponMarketingList");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -536,6 +547,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("12.用户领取优惠券接口");
 new \src\Block\Text("接口名称：getCouponOfMember");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -574,6 +586,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("13.用户下单前，查询商品和可用优惠券接口");
 new \src\Block\Text("接口名称：orderConfirm");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -662,6 +675,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("14.用户下单并发起支付接口");
 new \src\Block\Text("接口名称：memberDoOrder");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -731,6 +745,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("15.订单支付成功回调接口");
 new \src\Block\Text("接口名：orderPayNotify");
+new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [
@@ -762,6 +777,7 @@ $code = new \src\Block\Code("php",$code2);
 
 new \src\Block\H\H3("16.订单详情接口");
 new \src\Block\Text("接口名：orderDetail");
+new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
     [

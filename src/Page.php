@@ -98,7 +98,8 @@ ABC;
 
 			foreach($navigation as $key => $title){
 
-				$this->html .= "<div class='{$key}'><a href='#{$key}_{$title}'>{$title}</a></div>";
+				$markId = $key."_".$title;
+				$this->html .= "<div class='{$key}'><a onclick='mark(".'"'.$markId.'"'.")' href='javascript:void();'>{$title}</a></div>";
 			}
 		}
 
@@ -132,6 +133,11 @@ ABC;
 
 		$this->html .= <<<ABC
 </body>
+<script type="text/javascript">
+function mark(id){
+	document.getElementById(id).scrollIntoView();
+}
+</script>
 </html>
 ABC;
 
