@@ -19,8 +19,11 @@ class Style
 {
 	const NORMAL = "default";
 
+	const OSS_NORMAL = "oss_normal";
+
 	public static $styles = [
 
-		self::NORMAL => "/src/Static/css/default.css"
+		self::NORMAL => "/src/Static/css/default.css",
+		self::OSS_NORMAL => "http://image.lz517.com/image/market/css/php_marketdown_default.css"
 	];
 }

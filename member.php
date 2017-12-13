@@ -225,7 +225,7 @@ $code = new \src\Block\Code("php",$code2);
 
 
 new \src\Block\H\H3("5.用户中心优惠券列表接口");
-new \src\Block\Text("接口名：getCouponMarketingList");
+new \src\Block\Text("接口名：getUserCouponList");
 new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
@@ -248,6 +248,7 @@ $code2 = <<<CODESET
             "couponId":12,
             "type":"优惠券类型：1---满减券",
             "name":"优惠券名称",
+            "status":"优惠劵状态：1->未激活 2->可用 3->已使用 4->已过期",//优惠券状态
             "expireTime":"2015-12-30 08:24:20",
             "man" => 20,//满减根据优惠券类型判断，以后增加折扣券时，可能会换成：man:20,zheKou:10
             "jian" => 5
@@ -310,7 +311,7 @@ $code = new \src\Block\Code("php",$code2);
 
 
 new \src\Block\H\H3("7.订单列表接口");
-new \src\Block\Text("接口名：moneyList");
+new \src\Block\Text("接口名：orderList");
 new \src\Block\Text("请求方式：GET");
 new \src\Block\Text("参数：");
 new \src\Block\Table([
@@ -351,7 +352,8 @@ $code2 = <<<CODESET
                 "deviceCode":"MK001",
                 "deviceAddress":"北京市朝阳区地铁5号线立水桥站",
                 "totalMoney":50,
-                "discountMoney":10,
+                "couponMoney":"10.1",
+                "scoreMoney":"10.1",
                 "moneyPay":40,
                 "payType":"1---微信支付;2---钱包余额支付",
                 "status":"1---已出货……"
@@ -365,9 +367,19 @@ $code2 = <<<CODESET
                         "amount":5,
                         "successNum":3,//出货成功数量
                         "errorNum":2,//出货失败数量
+                    },
+                    {
+                        "goodsId":12,
+                        "goodsName":"可口可乐250ml",
+                        "goodsPic":"http://XXX.lz517.com/a.png",
+                        "salePrice":8,
+                        "amount":5,
+                        "successNum":3,//出货成功数量
+                        "errorNum":2,//出货失败数量
                     }
                 ]
-            }
+            },
+
         ]
     ]
 }
@@ -398,14 +410,17 @@ $code2 = <<<CODESET
     "data":[
         {
             "itemId":1,
-            "rechargeMoney":50
+            "rechargeMoney":50,
+            "sort":1 //越大越靠前
         },
         {
             "itemId":2,//充值选项Id
             "rechargeMoney":100,
+            "sort":2,
             "marketingId":1,//活动id
             "levelId":1,//额度等级id
             "sendMoney":20,//赠送的金额
+            "recommend":1,//是否显示推荐标签，1--显示；2--不显示；
         }
     ]
 }
@@ -530,12 +545,16 @@ $code2 = <<<CODESET
     "success": true/false
     "data":[
         {
-            "marketingId":12,
+            "marketingId":12,//活动标识
+            "couponTplId":13,//优惠券模板标识
+            "marketingName" => "新用户专享券",//活动名称，对应数据表中的title字段
+            "startTime":"2017-12-05 00:00:00",//活动开始时间
+            "endTime":"2017-12-15 00:00:00",//活动结束时间
             "type":"优惠券类型：1---满减券",
             "name":"优惠券名称",
-            "expireTime":"2015-12-30 08:24:20",
             "man" => 20,//满减根据优惠券类型判断，以后增加折扣券时，可能会换成：man:20,zheKou:10
-            "jian" => 5
+            "jian" => 5，
+            "isTake" => true,//是否已领取，true--已领取；false--未领取
         }
     ]
 
@@ -584,7 +603,7 @@ $code = new \src\Block\Code("php",$code2);
 
 
 
-new \src\Block\H\H3("13.用户下单前，查询商品和可用优惠券接口");
+new \src\Block\H\H3("13.下单前接口");
 new \src\Block\Text("接口名称：orderConfirm");
 new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
@@ -604,9 +623,9 @@ new \src\Block\Table([
         ""
     ],
     [
-        "deviceCode",
+        "deviceId",
         "字符串",
-        "设备编号",
+        "设备标识",
         "N",
         ""
     ],
@@ -624,30 +643,29 @@ $code2 = <<<CODESET
   "data": {
       "balance":20,   //余额
       "score":10,   //积分
+      "deviceId":1121,//设备标识
       "couponList": [  //优惠券列表
           {
-              "conditionMoney": 20,
               "couponId": 1,
-              "couponName": "新用户专享",
-              "createTime": "2017-02-14 16:24:07",
-              "endTime": "2017-02-17 16:24:02",
-              "money": 10,
-              "startTime": "2017-02-14 16:23:56",
-              "status": 1,
-              "updateTime": "2017-02-14 16:24:35",
+              "type":"优惠券类型：1---满减券",
+              "name": "新用户专享",
+              "status":"优惠劵状态：1->未激活 2->可用 3->已使用 4->已过期",//优惠券状态
+              "startTime" => "2015-12-10 08:24:20",//优惠券有效期开始时间
+              "expireTime":"2015-12-30 08:24:20",
+              "man" => 20,//满减根据优惠券类型判断，以后增加折扣券时，可能会换成：man:20,zheKou:10
+              "jian" => 5,
               "usable": true //可用
           },
           {
-              "conditionMoney": 50,
-              "couponId": 2,
-              "couponName": "满50减10",
-              "createTime": "2017-02-14 13:50:52",
-              "endTime": "2017-03-08 13:50:45",
-              "money": 10,
-              "startTime": "2017-02-14 13:50:39",
-              "status": 1,
-              "updateTime": "2017-02-15 14:20:29",
-              "usable": false  //不可用
+              "couponId": 1,
+              "type":"优惠券类型：1---满减券",
+              "name": "满50减10",
+              "status":"优惠劵状态：1->未激活 2->可用 3->已使用 4->已过期",//优惠券状态
+              "startTime" => "2015-12-10 08:24:20",//优惠券有效期开始时间
+              "expireTime":"2015-12-30 08:24:20",
+              "man" => 50,//满减根据优惠券类型判断，以后增加折扣券时，可能会换成：man:20,zheKou:10
+              "jian" => 10,
+              "usable": false //可用
           }
     ],
     "goodsInfo": [  //商品信息
@@ -673,7 +691,7 @@ $code = new \src\Block\Code("php",$code2);
 
 
 
-new \src\Block\H\H3("14.用户下单并发起支付接口");
+new \src\Block\H\H3("14.下单、发起支付接口");
 new \src\Block\Text("接口名称：memberDoOrder");
 new \src\Block\Text("请求方式：POST");
 new \src\Block\Text("参数：");
@@ -686,9 +704,9 @@ new \src\Block\Table([
         "参数样例" => "",
     ],
     [
-        "deviceCode",
+        "deviceId",
         "字符串",
-        "设备编号",
+        "设备标识",
         "N",
         ""
     ],
@@ -701,7 +719,7 @@ new \src\Block\Table([
     ],
     [
         "score",
-        "数组",
+        "数字",
         "支付的时候，选择使用的积分",
         "N",
         ""
@@ -735,7 +753,7 @@ $code2 = <<<CODESET
     "status": 1001,
     "success": true/false,
     "data":{
-        "orderCode":"X0110102220393"//第三方支付时，需要的订单号
+        "orderCode":"X0110102220393"
     }
 }
 CODESET;
@@ -807,7 +825,8 @@ $code2 = <<<CODESET
         "deviceCode":"MK001",
         "deviceAddress":"北京市朝阳区地铁5号线立水桥站",
         "totalMoney":50,
-        "discountMoney":10,
+        "couponMoney":"10.1",//优惠券抵用金额
+        "scoreMoney":"10.1",//积分抵用金额
         "moneyPay":40,
         "payType":"1---微信支付;2---钱包余额支付",
         "status":"1---已出货……"
@@ -830,7 +849,13 @@ CODESET;
 $code = new \src\Block\Code("php",$code2);
 
 
+$docTitle = "会员营销接口项目接口文档";
+
+new \src\Block\H\H2("三.附件");
+new \src\Block\H\H3("接口下载地址");
+new \src\Block\Link($docTitle,$_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"]."/download.php?filename=".$docTitle);
 
 $page = new \src\Page($code);
-$page->html(\src\Style::NORMAL,"会员营销接口项目接口文档");//显示html
+$page->html(\src\Style::OSS_NORMAL,$docTitle);//显示html
+
 //$page->code();                  //显示markdown编码

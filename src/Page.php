@@ -43,6 +43,8 @@ class Page
 
 		$this->style = Style::$styles[$style];
 		$this->title = $docTitle;
+
+
 		$this->header();
 
 		//添加左侧的导航栏
@@ -51,6 +53,9 @@ class Page
 		$this->content();
 
 		$this->footer();
+
+		//生成文档文件
+		$this->generateFile();
 
 		echo $this->html;
 	}
@@ -62,6 +67,12 @@ class Page
 
 			echo $code."<br/>";
 		}
+	}
+
+	public function generateFile(){
+
+		$docFileName = iconv("UTF-8","GBK",$this->title.".html");
+		file_put_contents($docFileName,$this->html);
 	}
 
 	/**
